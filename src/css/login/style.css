@@ -37,7 +37,7 @@ body {
   color: #FFFFFF;
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-image: url(""); */
+  background-image: url("../../../public/images/login/background.jpg");
   overflow: hidden;
 }
 
