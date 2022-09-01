@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* index */
+.w {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+}
+
+body {
+    font: 12px/1.5 tahoma,
+        arial,
+        'Hiragino Sans GB',
+        '\5b8b\4f53',
+        sans-serif;
+}
+
+#site-nav {
+    margin: 0 auto;
+    width: 1200px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #F2F2F2;
+    font-size: 12px;
+    color: #999;
+    font-family: "Microsoft YaHei", tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+}
+
+#site-nav .index {
+    margin-left: 120px;
+}
+
+#site-nav p {
+    float: left;
+    margin-right: 20px;
+}
+
+#site-nav a {
+    font-size: 12px;
+    color: #999;
+    margin-right: 20px;
+}
+
+#site-nav ul {
+    float: right;
+    margin-right: 140px;
+}
+
+#site-nav ul>li {
+    float: left;
+    margin: 0 10px;
+}
