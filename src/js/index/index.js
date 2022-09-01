@@ -9,6 +9,7 @@ let c1 = new Carousel({
         "./images/index/banner/banner01_02.jpg",
         "./images/index/banner/banner01_03.jpg",
         "./images/index/banner/banner01_04.jpg",
+        "./images/index/banner/banner01_05.jpg",
     ],
     douSize: 10,
     douColor: "skyblue",
@@ -25,7 +26,8 @@ let c2 = new Carousel({
         "./images/index/banner/banner02_01.jpg",
         "./images/index/banner/banner02_02.jpg",
         "./images/index/banner/banner02_03.jpg",
-        "./images/index/banner/banner02_04.jpg"
+        "./images/index/banner/banner02_04.jpg",
+        "./images/index/banner/banner02_05.jpg",
     ],
     douSize: 0,
 
@@ -34,10 +36,11 @@ let c2 = new Carousel({
 let c3 = new Carousel({
     box: document.getElementById("bot_right"),
     imgs: [
+        "./images/index/banner/banner02_05.jpg",
         "./images/index/banner/banner02_04.jpg",
-        "./images/index/banner/banner02_01.jpg",
-        "./images/index/banner/banner02_02.jpg",
         "./images/index/banner/banner02_03.jpg",
+        "./images/index/banner/banner02_02.jpg",
+        "./images/index/banner/banner02_01.jpg",
     ],
     douSize: 0,
     timeSpace: 3000
