@@ -3,7 +3,6 @@ const path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');//插件==类
 const CopyPlugin = require("copy-webpack-plugin");//复制文件
 // __dirname :是nodeJS的全局变量，该变量表示的是，当前js文件所在的路径
-console.log(__dirname);
 let arr = [
     {
         html: "index.html",
@@ -23,7 +22,7 @@ let arr = [
 module.exports = {
     mode: "development",
     entry: {
-        index: "./src/js/index//index.js",
+        index: "./src/js/index/index.js",
         goods: "./src/js/goods/goods.js",
         login: "./src/js/login/login.js"
     },
@@ -60,39 +59,38 @@ module.exports = {
             }
         ]
     },
-    plugins: [...arr.map(item => {
-        return new HtmlWebpackPlugin({
-            filename: item.html,//输出到dist的文件名(output配置项里的path下)
-            template: './public/' + item.html,//要参考的html模板
-            minify: {
-                //是否去除空格，默认false
-                collapseWhitespace: true,
+    plugins: [
+        ...arr.map(item => {
+            return new HtmlWebpackPlugin({
+                filename: item.html,//输出到dist的文件名(output配置项里的path下)
+                template: './public/' + item.html,//要参考的html模板
+                minify: {
+                    //是否去除空格，默认false
+                    collapseWhitespace: true,
 
-                //是否压缩html里的css（使用clean-css进行的压缩） 默认值false；
-                minifyCSS: true,
+                    //是否压缩html里的css（使用clean-css进行的压缩） 默认值false；
+                    minifyCSS: true,
 
-                //是否压缩html里的js（使用uglify-js进行的压缩）
-                minifyJS: true,
+                    //是否压缩html里的js（使用uglify-js进行的压缩）
+                    minifyJS: true,
 
-                //是否移除注释 默认false
-                removeComments: true,
-            },
-            chunks: item.chunks,//当前html文件引入的js文件（此处的名字和entry对象的键名一样，如果不写的话，默认引入entry对象中所有的js文件
-        })
-    }),
-    new CopyPlugin({
-        patterns: [
-            {
-                from: path.resolve(__dirname, "./public/images"), //开发目录下的路径
-                to: "images"//发布目录下的文件夹
+                    //是否移除注释 默认false
+                    removeComments: true,
+                },
+                chunks: item.chunks,//当前html文件引入的js文件（此处的名字和entry对象的键名一样，如果不写的话，默认引入entry对象中所有的js文件
+            })
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, "./public/images"), //开发目录下的路径
+                    to: "images"//发布目录下的文件夹
+                }
+            ],
+            options: {
+                concurrency: 100,//
             }
-        ],
-        options: {
-            concurrency: 100,//
-        }
-    })
-
-
+        })
     ],
     devServer: {
         port: 8082,
