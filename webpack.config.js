@@ -20,6 +20,10 @@ let arr = [
     {
         html: "describe.html",
         chunks: ["describe"]
+    },
+    {
+        html: "shopCar.html",
+        chunks: ["shopCar"]
     }
 ]
 
@@ -30,6 +34,7 @@ module.exports = {
         goods: "./src/js/goods/goods.js",
         login: "./src/js/login/login.js",
         describe: "./src/js/goods/describe.js",
+        shopCar: "./src/js/shopCar/shopCar.js",
     },
     output: {
         path: __dirname + "/build",
@@ -102,6 +107,7 @@ module.exports = {
         open: true, //开浏览器
         inline: true,
         host: '127.0.0.1',  //主机地址
-        progress: true //开启打包进度       
+        progress: true, //开启打包进度
+
     }
 }
