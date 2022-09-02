@@ -112,7 +112,10 @@ module.exports = {
         open: true, //开浏览器
         inline: true,
         host: '127.0.0.1',  //主机地址
-        progress: true, //开启打包进度
+
+        progress: true, //开启打包进度     
+        openPage: "index.html"
+
 
     }
 }
