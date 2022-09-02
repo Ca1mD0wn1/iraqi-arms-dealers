@@ -1,0 +1,290 @@
+body {
+  background-color: #f5f5f5;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.header .top {
+  height: 36px;
+  line-height: 36px;
+  color: #6c6c6c;
+  font-size: 12px;
+}
+
+.header .top .left li {
+  float: left;
+  margin-right: 7px;
+}
+
+.header .top .right {
+  float: right;
+}
+
+.header .top .right li {
+  float: left;
+  padding: 0 6px;
+}
+
+.header .top i {
+  padding: 0 7px;
+  font-size: 12px;
+}
+
+.header .bottom {
+  height: 80px;
+  background-color: #fff;
+}
+
+.header .bottom h1 {
+  float: left;
+  margin-top: 10px;
+}
+
+.header .bottom h1 a {
+  display: inline-block;
+  width: 142px;
+  height: 58px;
+  background: url(../../../public/images/index/logo.png) no-repeat;
+  background-size: 142px 58px;
+}
+
+.header .bottom .input {
+  float: right;
+  position: relative;
+  margin-top: 20px;
+  width: 430px;
+  height: 42px;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+}
+
+.header .bottom .input span {
+  display: inline-block;
+  line-height: 45px;
+  text-align: center;
+  width: 104px;
+  height: 42px;
+  font-size: 12px;
+  color: #000;
+  border-radius: 20px;
+}
+
+.header .bottom .input span i {
+  padding: 0 5px;
+}
+
+.header .bottom .input input {
+  position: absolute;
+  right: 81px;
+  width: 236px;
+  height: 40px;
+  background-color: #ebebeb;
+  border: none;
+}
+
+.header .bottom .input button {
+  position: absolute;
+  right: 0;
+  width: 81px;
+  height: 38px;
+  border-radius: 20px;
+  background-color: #ff5000;
+  font-size: 18px;
+}
+
+.main {
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.main .header {
+  margin: 0;
+  padding: 0 18px;
+  height: 73px;
+  color: #000;
+  line-height: 73px;
+  border-bottom: 1px solid #6c6c6c;
+}
+
+.main .header .left {
+  float: left;
+  font-size: 18px;
+}
+
+.main .header .right {
+  float: right;
+  font-size: 14px;
+}
+
+.main .header .right .price {
+  margin: 0 10px;
+  color: #ff5000;
+}
+
+.main .header .right button {
+  width: 74px;
+  height: 42px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 30px;
+  background-color: #aaaaaa;
+  border: none;
+}
+
+.main .shop_info {
+  height: 50px;
+}
+
+.main .shop_info li {
+  float: left;
+  height: 100%;
+  font-size: 13px;
+  color: #3c3c3c;
+  text-align: center;
+  line-height: 50px;
+}
+
+.main .shop_info li:nth-child(1) {
+  width: 80px;
+}
+
+.main .shop_info li:nth-child(1) input {
+  margin-right: 10px;
+  vertical-align: baseline;
+}
+
+.main .shop_info li:nth-child(2) {
+  width: 342px;
+}
+
+.main .shop_info li:nth-child(3) {
+  padding-left: 92px;
+  width: 130px;
+}
+
+.main .shop_info li:nth-child(4) {
+  width: 130px;
+}
+
+.main .shop_info li:nth-child(5) {
+  width: 130px;
+}
+
+.main .shop_info li:nth-child(6) {
+  width: 130px;
+}
+
+.main .shopCar {
+  padding-left: 15px;
+}
+
+.main .shopCar .item .top {
+  height: 38px;
+}
+
+.main .shopCar .item .top input {
+  vertical-align: baseline;
+  margin-right: 10px;
+}
+
+.main .shopCar .item .shopItem {
+  margin-left: 15px;
+  width: 1140px;
+  height: 170px;
+  border-radius: 30px;
+  background-color: #ece8e8;
+}
+
+.main .shopCar .item .shopItem .top {
+  padding-left: 100px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #8a8888;
+}
+
+.main .shopCar .item .shopItem .top img {
+  width: 56px;
+  height: 16px;
+}
+
+.main .shopCar .item .shopItem .bottom {
+  height: 120px;
+}
+
+.main .shopCar .item .shopItem .bottom img {
+  float: left;
+  margin-left: 20px;
+  margin-top: 15px;
+  width: 80px;
+  height: 80px;
+}
+
+.main .shopCar .item .shopItem .bottom p {
+  float: left;
+  margin-left: 20px;
+  margin-top: 43px;
+  width: 239px;
+  height: 36px;
+  font-size: 12px;
+  color: #3c3c3c;
+}
+
+.main .shopCar .item .shopItem .bottom .danjia {
+  float: left;
+  margin-top: 43px;
+  margin-left: 164px;
+  font-size: 16px;
+  color: #3c3c3c;
+}
+
+.main .shopCar .item .shopItem .bottom .count {
+  float: left;
+  margin-top: 43px;
+  margin-left: 80px;
+  font-size: 12px;
+}
+
+.main .shopCar .item .shopItem .bottom .count .jia,
+.main .shopCar .item .shopItem .bottom .count .jian {
+  display: inline-block;
+  text-align: center;
+  line-height: 25px;
+  width: 19px;
+  height: 25px;
+  background-color: #f0f0f0;
+  color: #807e7e;
+  vertical-align: baseline;
+}
+
+.main .shopCar .item .shopItem .bottom .count .num {
+  display: inline-block;
+  width: 41px;
+  height: 25px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 25px;
+}
+
+.main .shopCar .item .shopItem .bottom .price {
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.main .shopCar .item .shopItem .bottom .delete {
+  display: inline-block;
+  width: 77px;
+  height: 30px;
+  padding-top: 30px;
+  padding-left: 66px;
+}
+
+.fotter {
+  padding-top: 20px;
+  height: 150px;
+  line-height: 30px;
+  font-size: 12px;
+  text-align: center;
+}
