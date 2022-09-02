@@ -13,7 +13,7 @@ body {
 }
 
 .box-form {
-  margin: 0 auto;
+  margin: 80px auto 0;
   width: 80%;
   background: #FFFFFF;
   border-radius: 10px;
@@ -95,13 +95,12 @@ body {
 }
 
 .box-form .right h5 {
+  font-size: 5vmax;
   text-align: center;
-  font-size: 6vmax;
   line-height: 0;
 }
 
 .box-form .right p {
-  cursor: pointer;
   font-size: 14px;
   color: #B0B3B9;
 }
@@ -111,7 +110,7 @@ body {
   overflow: hidden;
 }
 
-.box-form .right .inputs #msg {
+.box-form .right .inputs span {
   position: absolute;
   box-sizing: border-box;
   display: none;
@@ -119,7 +118,7 @@ body {
   right: 54px;
   padding: 30px 30px 0 30px;
   width: 200px;
-  height: 80px;
+  height: 150px;
   border: 1px solid rgb(173, 173, 173);
   box-shadow: 3px 4px 23px 1px #49c628a6;
   background-color: #FFFFFF;
@@ -171,7 +170,7 @@ body {
 }
 
 .box-form .right button {
-  float: right;
+  margin-left: 100px;
   color: #fff;
   font-size: 16px;
   padding: 12px 35px;
@@ -181,6 +180,7 @@ body {
   outline: 0;
   box-shadow: 0px 4px 20px 0px #49c628a6;
   background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+  cursor: pointer;
 }
 
 label {
@@ -189,6 +189,29 @@ label {
   margin-left: 30px;
 }
 
+label::before {
+  content: " ";
+  position: absolute;
+  font-family: FontAwesome;
+  background: transparent;
+  border: 3px solid #70F570;
+  border-radius: 4px;
+  color: transparent;
+  left: -30px;
+  transition: all 0.2s linear;
+}
+
+label:hover::before {
+  font-family: FontAwesome;
+  content: " ";
+  color: #fff;
+  cursor: pointer;
+  background: #70F570;
+}
+
+label:hover::before .text-checkbox {
+  background: #70F570;
+}
 
 label span.text-checkbox {
   display: inline-block;
@@ -198,6 +221,6 @@ label span.text-checkbox {
   transition: all 0.2s linear;
 }
 
-/* label input[type=checkbox] {
+label input[type=checkbox] {
   display: none;
-} */
+}
