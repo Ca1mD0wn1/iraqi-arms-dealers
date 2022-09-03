@@ -24,6 +24,10 @@ let arr = [
     {
         html: "shopCar.html",
         chunks: ["shopCar"]
+    },
+    {
+        html: "reg.html",
+        chunks: ["reg"]
     }
 ]
 
@@ -35,6 +39,7 @@ module.exports = {
         login: "./src/js/login/login.js",
         describe: "./src/js/goods/describe.js",
         shopCar: "./src/js/shopCar/shopCar.js",
+        reg: "./src/js/reg/reg.js",
     },
     output: {
         path: __dirname + "/build",
