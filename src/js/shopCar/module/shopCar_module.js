@@ -86,24 +86,26 @@ export class shopCar {
             this.countDom = document.createElement('div');
             this.countDom.className = 'count';
 
-            let jiaDom = document.createElement('span');
-            this.jia.push(jiaDom)
-            jiaDom.className = 'jia';
-            jiaDom.innerHTML = '+';
+            let jianDom = document.createElement('span');
+            this.jian.push(jianDom);
+            jianDom.className = 'jian';
+            jianDom.innerHTML = '-';
 
             let numDom = document.createElement('span');
             numDom.className = 'num';
             this.count.push(numDom);
             numDom.innerHTML = this.countNum[i];
 
-            let jianDom = document.createElement('span');
-            this.jian.push(jianDom);
-            jianDom.className = 'jian';
-            jianDom.innerHTML = '-';
 
-            this.countDom.appendChild(jiaDom);
-            this.countDom.appendChild(numDom);
+
+            let jiaDom = document.createElement('span');
+            this.jia.push(jiaDom)
+            jiaDom.className = 'jia';
+            jiaDom.innerHTML = '+';
+
             this.countDom.appendChild(jianDom);
+            this.countDom.appendChild(numDom);
+            this.countDom.appendChild(jiaDom);
 
             this.priceDom = document.createElement('span');
             this.priceDom.className = 'price';
