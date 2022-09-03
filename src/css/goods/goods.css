@@ -73,9 +73,10 @@ body {
 
 /* search */
 .search {
-    width: 100%;
+
+    width: 1200px;
     height: 77px;
-    margin: 42px auto 0;
+    margin: 15px auto;
 }
 
 .search h1 {
@@ -84,18 +85,20 @@ body {
 }
 
 .search .logo {
-    width: 87px;
-    height: 53px;
+    margin-left: 71px;
+    ;
+    width: 100px;
+    height: 70px;
 
 }
 
 .search>input {
     float: left;
+    margin-left: 100px;
     width: 630px;
     height: 40px;
     border: 1px solid red;
     border-radius: 20px;
-    margin-left: 16px;
     margin-top: 8px;
     font-size: 12px;
     text-indent: 2em;

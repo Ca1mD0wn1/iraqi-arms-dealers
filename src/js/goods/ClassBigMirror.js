@@ -63,6 +63,7 @@ export default class BigMirror {
                     height: ${this.mirrorHeight}px;
                     background-color: ${this.mirrorColor};
                     opacity: ${this.opacity};
+
                 }
 
                 ${this.selector} .show{
@@ -74,6 +75,7 @@ export default class BigMirror {
                     background-image: url(${this.img});
                     background-size:${this.boxWidth * this.multiple}px ${this.boxHeight * this.multiple}px;
                     display: none;
+                    z-index:999;
                 }
         `
         Uitls.setStyle(css, "BigMirror-" + BigMirror.count);
