@@ -1,6 +1,12 @@
 import "../../css/index/index.css";
-import { Carousel } from "./module/Carousel.js"
+import { Carousel } from "./module/Carousel.js";
 
+const token = window.localStorage.getItem('token');
+// const id = window.localStorage.getItem('id');
+if (token) {
+    let userName = localStorage.getItem('username');
+    document.getElementById('userLogin').innerText = userName;
+}
 
 let c1 = new Carousel({
     box: document.getElementById("slideshow_top"),
@@ -18,7 +24,7 @@ let c1 = new Carousel({
     urls: [
         "https://www.baidu.com"
     ]
-})
+});
 
 let c2 = new Carousel({
     box: document.getElementById("bot_left"),
@@ -32,7 +38,7 @@ let c2 = new Carousel({
     douSize: 0,
 
     timeSpace: 3000
-})
+});
 let c3 = new Carousel({
     box: document.getElementById("bot_right"),
     imgs: [
@@ -44,7 +50,7 @@ let c3 = new Carousel({
     ],
     douSize: 0,
     timeSpace: 3000
-})
+});
 
 c1.autoplay();
 c2.autoplay();
