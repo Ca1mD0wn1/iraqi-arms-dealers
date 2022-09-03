@@ -1,44 +1,6 @@
 // import Classdescribe from "./Classdescribe";
 import "../../css/goods/goods.css";
 import { Describe } from "./Classdescribe.js";
-
-class cookieUlits {//
-    static saveData(obj) {
-        let defaultObj = {
-            key: '',
-            value: '',
-            date: 7,
-            path: '/',
-            domain: ''
-        };
-        for (let k in defaultObj) {
-            defaultObj[k] = obj[k] ? obj[k] : defaultObj[k];
-        }
-        let d = new Date();
-        d.setDate(d.getDate() + (defaultObj.date - 0));
-        let str = `${defaultObj.key}=${defaultObj.value};expires=${d.toGMTString()};path=${defaultObj.path};`
-        defaultObj.domain ? str += `domain=${defaultObj.domain}` : '';
-        document.cookie = str;
-    }
-    static getData(k) {
-        let str = document.cookie;
-        let strArr = str.split('; ');
-        for (let i = 0; i < strArr.length; i++) {
-            let [key, value] = strArr[i].split('=');
-            if (k == key) {
-                return value;
-            }
-        }
-        return null;
-    }
-    static delData(key) {
-        this.saveData({
-            key,
-            value: '',
-            date: -1
-        })
-    }
-}
 var describeData = [[{
     "goods_id": 1,
     "history": "中国军方于 2014 年启动了常规布局步枪的开发，多家制造商参与了开发和招标过程。新武器平台的各种原型在 2016 年和 2017 年在网上泄露。[3] [4]\r\n\r\nQBZ-191步枪由北方工业208研究所设计，该研究所还设计了QBZ-95突击步枪。据208研究所所长介绍，QBZ-191是新型“单兵综合作战系统”的组成部分，旨在对解放军的步兵装备进行大修。[5]\r\n\r\nQBZ-191 于 2019 年中国国庆阅兵中首次公布，将逐步取代 QBZ-95 步枪家族在中国军队服役。QBZ-191 具有多项改进，旨在解决 95 式平台的人机工程学等不令人满意的问题",
@@ -101,7 +63,7 @@ var describeData = [[{
     "goods_id": 7,
     "history": "和苏-27一样，米格-29的历史始于1969年，苏联获知美国空军正在进行“FX”计划（即最终形成F-15的计划）时。苏联领导人意识到，新的美军飞机将会对苏联现有的所有战斗机都形成巨大的技术优势。米格-21算是当时机动性很高的飞机，然而在航程，武装与升级潜能上有相当多的缺点。以对抗美国F-4为研发重点的米格-23飞行速度较高，也有较多的携带燃料与装备的空间，可是欠缺缠斗中需要的运动性。苏联欠缺的是一款在各方面性能都相当均衡的战斗机，具有优异的运动性和高性能的航电系统。对此，俄国参谋本部发出“先进战术战斗机”（Перспективний Фронтовой Истребитель，ПФИ）的需求案，其中诸项性能要求相当高，包括高航程，优异的短场起降能力（包括使用简易机场的能力），高敏捷性，超过两马赫极速和重武装。新飞机的空气动力设计交由苏联空气动力研究所（TsAGI）负责，成果与苏霍伊飞机公司一同分享。",
     "design": "由于设计上的基本参数是来自于TsAGI为PFI项目所进行的运算，米格-29的气动力外型设计与Su-27战斗机非常相似，其中较为明显的差异包括：米格-29的主要结构材料以铝为主再加上一些复合材料，机翼是后掠中单翼加上融合成一体的翼前缘延伸面（leading-edge root extensions，LERSx），后掠角为40度。机身后方位于引擎位侧的是有后掠角度的水平尾翼与双垂直安定面，翼前缘自动缝翼在早期型上分长4个部分（后期型改为5个），翼后缘则有襟翼和副翼。\r\n\r\n米格-29采用液压控制与SAU-451三轴自动飞行仪，并不像Su-27使用线传飞控系统，尽管如此，米格-29仍是一架非常灵活的战机，无论是瞬时或者是持续回转性能均接近西方战机的平均水准，在400节以上速度时拥有和F-16战斗机相近的盘旋速度，能量损失率仅为F-16的四倍（60%和240%）。米格-29拥有良好的高攻角性能而且不容易进入水平螺旋，机身结构足以承受9G（88E米/秒²）的运动。控制杆有一个可以手动取消的限制，以免飞行员超过g或是攻角限制。",
-    "describe_img_src": "07MiG-29.png",
+    "describe_img_src": "describeMiG-29.png",
     "goods_img_src": "07MiG-29.png",
     "goods_name": "米格29",
     "goods_price": 96558,
@@ -132,6 +94,6 @@ var describeData = [[{
 
 
 
-new Describe(describeData[2][0]);
+new Describe(describeData[sessionStorage.getItem("id") - 1][0]);
 
 

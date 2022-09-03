@@ -12,7 +12,43 @@ var data = {
     "goods_price": 200,
     "goods_describe": "QBZ-191自动步枪是一款由中华人民共和国研制生产的突击步枪。突击步枪型，枪管长14.5英寸（368.3 mm）"
 }
-
+class cookieUlits {//
+    static saveData(obj) {
+        let defaultObj = {
+            key: '',
+            value: '',
+            date: 7,
+            path: '/',
+            domain: ''
+        };
+        for (let k in defaultObj) {
+            defaultObj[k] = obj[k] ? obj[k] : defaultObj[k];
+        }
+        let d = new Date();
+        d.setDate(d.getDate() + (defaultObj.date - 0));
+        let str = `${defaultObj.key}=${defaultObj.value};expires=${d.toGMTString()};path=${defaultObj.path};`
+        defaultObj.domain ? str += `domain=${defaultObj.domain}` : '';
+        document.cookie = str;
+    }
+    static getData(k) {
+        let str = document.cookie;
+        let strArr = str.split('; ');
+        for (let i = 0; i < strArr.length; i++) {
+            let [key, value] = strArr[i].split('=');
+            if (k == key) {
+                return value;
+            }
+        }
+        return null;
+    }
+    static delData(key) {
+        this.saveData({
+            key,
+            value: '',
+            date: -1
+        })
+    }
+}
 
 export class Describe {
 
@@ -21,26 +57,292 @@ export class Describe {
             this[key] = obj[key];
         }
         this.render();
+        this.addEvent();
     }
 
+
+
     render() {
-        let div = document.createElement("div");
-        div.style.cssText = `
+
+        let main = document.createElement('div');
+        main.style.cssText = `
+        width: 1100px;
+        margin: 0 auto;
+        `
+
+
+
+        let mirror = document.createElement("div");
+        mirror.style.cssText = `
+        border:1px solid black;
+        float: left;
         position:relative;
         background:url(./images/goods/${this.describe_img_src});
         background-size: cover;
         width:399px;
         height:266px;
         `
-        div.className = "box"
-        document.body.appendChild(div);
+
+
+        mirror.className = "box";
+        main.appendChild(mirror);
+        document.body.appendChild(main);
+
+        let price = document.createElement('span');
+        price.style.cssText = `
+        position:relative;
+        left:20px;
+        top:0;
+        font-size:50px;
+        color: red;
+        `;
+        price.innerHTML = `心动价$${this.goods_price}`
+
+        let name = document.createElement('span');
+        name.style.cssText = `
+        font-weight: bold;
+        color: black;
+        font-size:30px;
+        margin-left: 150px;
+        `;
+        name.innerHTML = `${this.goods_name}`;
+
+        let describe = document.createElement("p");
+        describe.style.cssText = `
+        position:relative;
+        left:20px;
+        top:0;
+        margin-left:20px;
+        color: #666666;
+        font-size: 19px;
+
+        `;
+        describe.innerHTML = `${this.goods_describe}`
+
+
+
+
+        let advise = document.createElement("p");
+        advise.style.cssText = `
+        color:blue;
+        font-size:15px;
+        position:relative;
+        left:20px;
+        top:0;
+
+        `;
+        advise.innerHTML = `伊拉克武器！您杀人越货的不二选择！你不买，对手就会买！还在犹豫什么？快点下单吧！`;
+
+        let confirm = document.createElement("span");
+        this.confirmButton = confirm;
+        confirm.style.cssText = `
+        position:relative;
+        font-size:20px;
+        background-color:red;
+        padding:10px;
+        left:20px;
+        top:10px;
+        `;
+        confirm.innerHTML = `加入购物车`;
+
+        let add = document.createElement("button");
+        this.addButton = add;
+        add.style.cssText = `
+        background-color: #fff;
+        position: relative;
+        top: -5px;
+        left: 0;
+        width:26px;
+        height:26px;
+        border:1px solid gray;
+
+        `;
+        add.innerHTML = "+";
+
+
+        let count = document.createElement("input");
+        this.countInput = count;
+        count.value = 1;
+        count.style.cssText = `
+        float:left;
+        font-size: 5px;
+        width:50px;
+        height:50px;
+        text-align:center;
+        border:1px solid black;
+
+        `;
+
+
+        let reduce = document.createElement("button");
+        this.reduceButton = reduce;
+        reduce.style.cssText = `
+        position:relative;
+        background-color: #fff;
+        top:20px;
+        left:-26px;
+        width:26px;
+        height:27px;
+        border:1px solid gray;
+
+        `
+        reduce.innerHTML = "-";
+
+
+        let shop = document.createElement("div");
+        shop.style.cssText = `
+        position:relative;
+        left:20px;
+        top:0;
+        margin-top:15px;
+        `;
+
+
+        shop.append(count);
+        shop.append(add);
+
+        shop.append(reduce);
+        shop.append(confirm);
+        main.appendChild(mirror);
+
+        main.appendChild(name);
+        main.appendChild(describe);
+        main.appendChild(price);
+        main.appendChild(advise);
+        main.appendChild(shop);
+        document.body.appendChild(main);
 
         new BigMirror({
             imgBox: ".box",
             img: `./images/goods/${this.describe_img_src}`,
-            multiple: 5
+            multiple: 6
         });
+
+        let details = document.createElement("div");
+        details.style.cssText = `
+        width:1100px;
+        color: black;
+        margin:50px auto;
+        margin-top:100px;
+        `;
+
+        let history = document.createElement("div");
+
+        let historySpan = document.createElement("span");
+        historySpan.style.cssText = `
+        font-size:30px;
+        color:grey;
+
+        `;
+        historySpan.innerHTML = "武器历史";
+
+
+        let hr = document.createElement("li");
+        hr.style.cssText =
+            `
+            margin :0 auto;
+            width:1200px;
+            height:2px;
+            background-color:black;
+            list-style:none;
+            `;
+        let historyMain = document.createElement("div");
+        historyMain.style.cssText = `
+        font-size:19px;
+        line-height: 30px;
+        `
+        historyMain.innerHTML = this.history;
+
+
+        history.append(historySpan);
+        history.append(hr);
+        history.append(historyMain);
+
+
+
+
+        let design = document.createElement("div");
+        design.style.cssText = `
+        margin-top:20px;
+        `
+
+        let designSpan = document.createElement("span");
+        designSpan.style.cssText = `
+        font-size:30px;
+        color:grey;
+        `;
+        designSpan.innerHTML = "武器制造";
+
+
+        let designMain = document.createElement("div");
+        designMain.style.cssText = `
+        font-size:19px;
+        line-height: 30px;
+        `
+        designMain.innerHTML = this.design;
+
+        let hr2 = document.createElement("li");
+        hr2.style.cssText =
+            `
+            margin :0 auto;
+            width:1200px;
+            height:2px;
+            background-color:black;
+            list-style:none;
+            `;
+        design.append(designSpan)
+        design.append(hr2);
+        design.append(designMain);
+
+
+        details.appendChild(history);
+        details.appendChild(design);
+        document.body.appendChild(details);
     }
+
+    addEvent() {
+
+
+        this.reduceButton.onclick = () => {
+
+            if (this.countInput.value <= 1) {
+                return;
+            }
+            this.countInput.value--;
+        }
+
+
+        this.addButton.onclick = () => {
+            this.countInput.value++;
+        }
+        this.confirmButton.onclick = () => {
+            var oldData = JSON.parse(cookieUlits.getData("shopData"));
+            if (oldData == null) {
+                oldData = new Array();
+            }
+            console.log(oldData);
+
+            let goods_id = this.goods_id;
+            let goods_count = this.countInput.value;
+            let data = {
+                goods_id: goods_id,
+                goods_count: goods_count,
+            }
+
+
+            oldData.push(data)
+
+            oldData = JSON.stringify(oldData);
+            console.log(123);
+
+            cookieUlits.saveData({
+                key: "shopData",
+                value: oldData
+
+            });
+        }
+    }
+
 }
 
 
