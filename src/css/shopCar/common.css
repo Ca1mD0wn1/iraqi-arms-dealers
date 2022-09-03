@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+.center {
+  margin: 0 auto;
+  width: 1200px;
+}

@@ -74,8 +74,8 @@ export default
         this.button.style.cssText = `
             color:green;
             position: absolute;
-            bottom: 0px;
-            right: 0px;
+            bottom: 15px;
+            right: 15px;
             font-size:25px`;
 
 

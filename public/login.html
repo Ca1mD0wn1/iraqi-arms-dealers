@@ -24,13 +24,16 @@
 
 		<div class="right">
 			<h5>登录</h5>
-			<p>没有账号？<a href="#">点击此处注册一个！</a>快来这里花光你的钱吧！</p>
+			<p>没有账号？<a href="./reg.html">点击此处注册一个！</a>快来这里花光你的钱吧！</p>
 			<div class="inputs">
-				<input type="text" placeholder="用户名">
+				<input type="text" placeholder="用户名" id="username">
 				<br>
-				<input type="password" placeholder="密码">
+				<input type="password" placeholder="密码" id="userpass">
+				<span id="msg">
+					<i class="txt"></i>
+					<strong class="error">×</strong>
+				</span>
 			</div>
-
 			<br><br>
 
 			<div class="remember-me--forget-password">
@@ -43,12 +46,11 @@
 			</div>
 
 			<br>
-			<button>登录</button>
+			<button id="login">登录</button>
 		</div>
 
 	</div>
 
-	<script src="../src/js/login/login.js"></script>
 </body>
 
 </html>

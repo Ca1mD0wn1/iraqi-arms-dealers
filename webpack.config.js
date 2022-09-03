@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');//插件==类
 const CopyPlugin = require("copy-webpack-plugin");//复制文件
+const { default: Describe } = require("./src/js/goods/Classdescribe");
 // __dirname :是nodeJS的全局变量，该变量表示的是，当前js文件所在的路径
 let arr = [
     {
@@ -15,8 +16,19 @@ let arr = [
     {
         html: "login.html",
         chunks: ["login"]
+    },
+    {
+        html: "describe.html",
+        chunks: ["describe"]
+    },
+    {
+        html: "shopCar.html",
+        chunks: ["shopCar"]
+    },
+    {
+        html: "reg.html",
+        chunks: ["reg"]
     }
-
 ]
 
 module.exports = {
@@ -24,7 +36,10 @@ module.exports = {
     entry: {
         index: "./src/js/index/index.js",
         goods: "./src/js/goods/goods.js",
-        login: "./src/js/login/login.js"
+        login: "./src/js/login/login.js",
+        describe: "./src/js/goods/describe.js",
+        shopCar: "./src/js/shopCar/shopCar.js",
+        reg: "./src/js/reg/reg.js",
     },
     output: {
         path: __dirname + "/build",
@@ -97,6 +112,10 @@ module.exports = {
         open: true, //开浏览器
         inline: true,
         host: '127.0.0.1',  //主机地址
-        progress: true //开启打包进度       
+
+        progress: true, //开启打包进度     
+        openPage: "index.html"
+
+
     }
 }
