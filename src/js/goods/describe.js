@@ -132,6 +132,6 @@ var describeData = [[{
 
 
 
-new Describe(describeData[2][0])
+new Describe(describeData[2][0]);
 
 
