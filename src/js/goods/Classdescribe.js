@@ -1,5 +1,5 @@
 
-import { BigMirror } from "./ClassBigMirror.js";
+import BigMirror from "./ClassBigMirror.js";
 
 
 var data = {
@@ -14,8 +14,8 @@ var data = {
 }
 
 
-export default
-    class Describe {
+export class Describe {
+
     constructor(obj) {
         for (let key in obj) {
             this[key] = obj[key];

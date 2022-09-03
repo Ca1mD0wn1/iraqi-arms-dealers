@@ -1,5 +1,4 @@
-
-export class BigMirror {
+export default class BigMirror {
 
     // 定义的是静态的属性
     static count = 0;//记录放大镜被创建了多少次；
