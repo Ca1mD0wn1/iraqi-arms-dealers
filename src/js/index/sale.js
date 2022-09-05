@@ -1,5 +1,5 @@
-import "../../css/index/sale.css";
 import "../../css/index/swiper-bundle.min.css";
+import "../../css/index/sale.css";
 const Swiper = require("./swiper-bundle.min.js");
 
 
