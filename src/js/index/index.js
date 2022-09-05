@@ -77,3 +77,20 @@ function getFourGoods() {
     ulDom.innerHTML = strHtml;
     document.querySelector('.center_goods').appendChild(ulDom);
 }
+
+document.querySelector("#goods1").onclick = function () {
+    sessionStorage.setItem("id", 1);
+    window.open("describe.html");
+}
+document.querySelector("#goods2").onclick = function () {
+    sessionStorage.setItem("id", 2);
+    window.open("describe.html");
+}
+document.querySelector("#goods3").onclick = function () {
+    sessionStorage.setItem("id", 3);
+    window.open("describe.html");
+}
+document.querySelector("#goods4").onclick = function () {
+    sessionStorage.setItem("id", 4);
+    window.open("describe.html");
+}
