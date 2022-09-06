@@ -70,3 +70,49 @@ body {
     float: left;
     margin: 0 10px;
 }
+
+/* search */
+.search {
+
+    width: 1200px;
+    height: 77px;
+    margin: 15px auto;
+}
+
+.search h1 {
+    float: left;
+    margin: 0 62px;
+}
+
+.search .logo {
+    margin-left: 71px;
+    ;
+    width: 100px;
+    height: 70px;
+
+}
+
+.search>input {
+    float: left;
+    margin-left: 100px;
+    width: 630px;
+    height: 40px;
+    border: 1px solid red;
+    border-radius: 20px;
+    margin-top: 8px;
+    font-size: 12px;
+    text-indent: 2em;
+    color: #999;
+}
+
+.search>div {
+    float: left;
+    margin-left: -90px;
+    margin-top: 8px;
+    width: 90px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 20px;
+    background-color: #FE0137;
+    text-align: center;
+}

@@ -1,5 +1,4 @@
-
-export class BigMirror {
+export default class BigMirror {
 
     // 定义的是静态的属性
     static count = 0;//记录放大镜被创建了多少次；
@@ -64,6 +63,7 @@ export class BigMirror {
                     height: ${this.mirrorHeight}px;
                     background-color: ${this.mirrorColor};
                     opacity: ${this.opacity};
+
                 }
 
                 ${this.selector} .show{
@@ -75,6 +75,7 @@ export class BigMirror {
                     background-image: url(${this.img});
                     background-size:${this.boxWidth * this.multiple}px ${this.boxHeight * this.multiple}px;
                     display: none;
+                    z-index:999;
                 }
         `
         Uitls.setStyle(css, "BigMirror-" + BigMirror.count);

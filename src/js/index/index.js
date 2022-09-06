@@ -1,51 +1,96 @@
 import "../../css/index/index.css";
-import { Carousel } from "./module/Carousel.js"
+import "../../css/index/swiper-bundle.min.css";
+const Swiper = require("./swiper-bundle.min.js");
 
 
-let c1 = new Carousel({
-    box: document.getElementById("slideshow_top"),
-    imgs: [
-        "./images/index/banner/banner01_01.jpg",
-        "./images/index/banner/banner01_02.jpg",
-        "./images/index/banner/banner01_03.jpg",
-        "./images/index/banner/banner01_04.jpg",
-        "./images/index/banner/banner01_05.jpg",
-    ],
-    douSize: 10,
-    douColor: "skyblue",
-    douHighColor: "blue",
-    douIsCircle: true,
-    urls: [
-        "https://www.baidu.com"
-    ]
-})
+const token = window.localStorage.getItem('token');
+// const id = window.localStorage.getItem('id');
+if (token) {
+    let userName = localStorage.getItem('username');
+    document.getElementById('userLogin').innerText = userName;
+}
 
-let c2 = new Carousel({
-    box: document.getElementById("bot_left"),
-    imgs: [
-        "./images/index/banner/banner02_01.jpg",
-        "./images/index/banner/banner02_02.jpg",
-        "./images/index/banner/banner02_03.jpg",
-        "./images/index/banner/banner02_04.jpg",
-        "./images/index/banner/banner02_05.jpg",
-    ],
-    douSize: 0,
+var mySwiper = new Swiper('#slideshow_top .swiper', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay: {
+        delay: 2000,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+    },
 
-    timeSpace: 3000
-})
-let c3 = new Carousel({
-    box: document.getElementById("bot_right"),
-    imgs: [
-        "./images/index/banner/banner02_05.jpg",
-        "./images/index/banner/banner02_04.jpg",
-        "./images/index/banner/banner02_03.jpg",
-        "./images/index/banner/banner02_02.jpg",
-        "./images/index/banner/banner02_01.jpg",
-    ],
-    douSize: 0,
-    timeSpace: 3000
-})
+    // 如果需要分页器
+    pagination: {
+        el: '.swiper-pagination',
+    },
 
-c1.autoplay();
-c2.autoplay();
-c3.autoplay();
+    // 如果需要前进后退按钮
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+var mySwiper = new Swiper('#bot_left .swiper', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+    },
+
+});
+var mySwiper = new Swiper('#bot_right .swiper', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+    },
+
+});
+// getFourGoods();
+function getFourGoods() {
+    let ulDom = document.createElement('ul');
+    let strHtml = '';
+    ulDom.className = 'good_item';
+    for (let i = 0; i < 4; i++) {
+        strHtml += `
+        <li>
+            <div class="goods">
+                <div class="iconImg">
+                    <img src="./images/goods/describeQBZ191.png">
+                </div>
+                <div class="priceCon">
+                    $<i>1200.00</i>
+                </div>
+                <div class="titleCon">
+                    <span class="titleIcon">QBZ95</span>
+                    <a href="#">QBZ-191自动步枪</a>
+                </div>
+            </div>
+        </li>
+        `;
+    }
+    console.log(strHtml);
+    ulDom.innerHTML = strHtml;
+    document.querySelector('.center_goods').appendChild(ulDom);
+}
+
+document.querySelector("#goods1").onclick = function () {
+    sessionStorage.setItem("id", 1);
+    window.open("describe.html");
+}
+document.querySelector("#goods2").onclick = function () {
+    sessionStorage.setItem("id", 2);
+    window.open("describe.html");
+}
+document.querySelector("#goods3").onclick = function () {
+    sessionStorage.setItem("id", 3);
+    window.open("describe.html");
+}
+document.querySelector("#goods4").onclick = function () {
+    sessionStorage.setItem("id", 4);
+    window.open("describe.html");
+}

@@ -1,5 +1,4 @@
 import { shopCar } from './module/shopCar_module.js';
-
 import '../../css/shopCar/common.css';
 import '../../css/shopCar/shopCar.css';
 
@@ -36,4 +35,6 @@ let obj = {
         { "goods_id": 9, "goods_img_src": "09JF-17.png", "goods_name": "JF-17", "goods_price": 159963, "goods_describe": "枭龙战机（JF-17，Fighter China-1），原计划名超七，巴基斯坦称之为JF-17雷电（Joint Fighter-17 Thunder）" }
     ]
 }
+
+
 new shopCar(obj);

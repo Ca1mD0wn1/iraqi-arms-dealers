@@ -28,8 +28,12 @@ let arr = [
     {
         html: "reg.html",
         chunks: ["reg"]
+    },
+    {
+        html: "sale.html",
+        chunks: ["sale"]
     }
-]
+];
 
 module.exports = {
     mode: "development",
@@ -93,7 +97,7 @@ module.exports = {
                     removeComments: true,
                 },
                 chunks: item.chunks,//当前html文件引入的js文件（此处的名字和entry对象的键名一样，如果不写的话，默认引入entry对象中所有的js文件
-            })
+            });
         }),
         new CopyPlugin({
             patterns: [
@@ -118,4 +122,4 @@ module.exports = {
 
 
     }
-}
+};
