@@ -8,6 +8,7 @@ li {
 }
 img {
 	display: block;
+	border: none;
 }
 input {
 	border: none;
@@ -20,14 +21,23 @@ a {
 	width: 920px;
 	margin: 0 auto;
 }
-.tonglan_top {
-	margin: 0 auto;
-	width: 1920px;
+
+.tonglan_top img {
+	width: 100%;
 	height: 430px;
 }
 .banner {
 	display: flex;
 	justify-content: space-between;
+	margin: 10px auto;
+}
+.banner .left .swiper {
+	--swiper-navigation-color: #fff; /* 单独设置按钮颜色 */
+	--swiper-navigation-size: 20px; /* 设置按钮大小 */
+	--swiper-pagination-bullet-size: 12px;
+}
+.banner .left .swiper-pagination-bullet-active {
+	background-color: #fff;
 }
 .banner .left {
 	width: 520px;
@@ -35,18 +45,40 @@ a {
 	background-color: #000;
 }
 .banner .right {
+	position: relative;
 	width: 380px;
 	height: 280px;
 	background-color: #000;
+}
+
+.banner .right .title_small {
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #9374eb;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	border-bottom: 2px solid #fff;
+}
+.banner .right img {
+	position: absolute;
+	top: 30px;
+	right: 0px;
+}
+.banner .right .hot {
+	height: 250px;
+	background: url(../../../public/images/index/sale/hot.jpg) no-repeat;
 }
 .title {
 	padding-left: 10px;
 	height: 60px;
 	line-height: 60px;
-	background-color: red;
+	background-color: #9374eb;
 	font-size: 24px;
 	font-weight: bold;
 	color: #fff;
+	margin: 5px auto;
 }
 .center_goods {
 	width: 920px;
@@ -56,11 +88,17 @@ a {
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
+
 .center_goods li {
 	margin: 5px 0;
 	width: 300px;
 	height: 350px;
-	border: 1px solid grey;
+
+	border: 1px solid #eee;
+}
+.goods_sale img {
+	width: 300px;
+	height: 350px;
 }
 .tonglan_bot img {
 	width: 920px;
