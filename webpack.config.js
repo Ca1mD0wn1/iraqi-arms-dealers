@@ -44,6 +44,7 @@ module.exports = {
         describe: "./src/js/goods/describe.js",
         shopCar: "./src/js/shopCar/shopCar.js",
         reg: "./src/js/reg/reg.js",
+        sale: "./src/js/index/sale.js",
     },
     output: {
         path: __dirname + "/build",
