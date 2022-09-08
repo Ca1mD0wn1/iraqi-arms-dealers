@@ -105,4 +105,31 @@ window.onload = function () {
             };
         }
     };
+
 };
+// 显示隐藏登录注册按钮
+let login = document.getElementById('login');
+let check = document.getElementById('check');
+let usernameHi = document.getElementById('usernameHi');
+let userLogin = document.getElementById('userLogin');
+
+let username = getData('username');
+if (username) {
+    login.style.display = 'none';
+    check.style.display = 'none';
+    userLogin.innerHTML = username;
+    usernameHi.innerHTML = 'Hi   &nbsp;&nbsp;&nbsp;' + username;
+
+}
+
+function getData(k) {
+    let str = document.cookie;
+    let strArr = str.split('; ');
+    for (let i = 0; i < strArr.length; i++) {
+        let [key, value] = strArr[i].split('=');
+        if (k == key) {
+            return value;
+        }
+    }
+    return null;
+}
