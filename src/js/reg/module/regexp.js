@@ -11,6 +11,7 @@ let flag = false;
 error.onclick = function () {
     msg4.style.display = 'none';
 }
+let path = 'http://10.12.152.4:3000';
 username.onblur = function () {
     let str = this.value;
     // 判断非空
@@ -21,7 +22,6 @@ username.onblur = function () {
         return;
     }
     // 判断是否满足正则
-    console.log(reg('nick', str));
     if (!reg('nick', str)) {
         msg4.style.display = 'block';
         txt.innerHTML = '用户名由2到4位汉字组成';
@@ -29,25 +29,25 @@ username.onblur = function () {
         return;
     }
     // 判断是否被占用
-    // let xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
-    // xhr.open('get', '/checkUser?username=' + str, true);
+    xhr.open('get', path + '/check?username=' + str, true);
 
-    // xhr.onreadystatechange = () => {
-    //     if (xhr.readyState == 4 && xhr.status == 200) {
-    //         if (xhr.responseText == '1') {
-    //             msg4.innerHTML = '您输入的用户名已被占用';
-    //         } else if (xhr.responseText == '0') {
-    //             msg4.style.color = 'green';
-    //             msg4.innerHTML = '验证通过';
-    //             console.log(xhr.responseText);
-    //             flag = true;
-    //         }
-    //     }
-    // }
-    // xhr.send();
-    txt.style.color = 'green';
-    txt.innerHTML = '验证通过';
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = JSON.parse(xhr.responseText);
+            if (result.status == 'fail') {
+                msg4.style.display = 'block';
+                txt.innerHTML = '您输入的用户名已被占用';
+            } else if (result.status == 'success') {
+                flag = true;
+            } else {
+                msg4.style.display = 'block';
+                txt.innerHTML = '您输入的用户名已被占用';
+            }
+        }
+    }
+    xhr.send();
 }
 
 // 验证密码
@@ -113,28 +113,27 @@ btn.onclick = function () {
     // 注册
     let xhr = new XMLHttpRequest();
 
-    // xhr.open('post', `/regSave`, true);
+    xhr.open('post', path + `/reg`, true);
 
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState == 4 && xhr.status == 200) {
-    //         if (xhr.responseText == 'success') {
-    //             msg4.style.color = 'green';
-    //             msg4.innerHTML = '注册成功'
-    //             location.href = './login.html'
-    //         } else if (xhr.responseText == 'fail') {
-    // msg4.style.display = 'block';
-    //             txt.style.color = 'red';
-    //             txt.innerHTML = '注册失败';
-    //         }
-    //     }
-    // }
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = JSON.parse(xhr.responseText);
+            if (result.status == 'success') {
+                location.href = './login.html'
+            } else if (result.status == 'fail') {
+                msg4.style.display = 'block';
+                txt.style.color = 'red';
+                txt.innerHTML = '注册失败';
+            }
+        }
+    }
 
-    // // post请求方式，得设置请求头。content-type表示发送给后端的数据类型
-    // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    // post请求方式，得设置请求头。content-type表示发送给后端的数据类型
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
-    // let str = `username=${username.value}&userpass=${userpass.value}`;
+    let str = `username=${username.value}&password=${userpass.value}`;
 
-    // xhr.send(str);
+    xhr.send(str);
 
 }
 
