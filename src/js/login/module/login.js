@@ -61,6 +61,7 @@ login.onclick = function () {
     // post请求方式，得设置请求头。content-type表示发送给后端的数据类型
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     let str = `username=${username}&password=${userpass}`;
+    console.log(str);
     xhr.send(str);
 
 
