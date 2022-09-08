@@ -4,11 +4,15 @@ let error = document.querySelector('.error');
 let txt = document.querySelector('.txt');
 let username = document.getElementById('username');
 let userpass = document.getElementById('userpass');
+let check = document.getElementById('check');
+
 
 let date = '0';
 error.onclick = function () {
     msg.style.display = 'none';
 }
+let path = 'http://10.12.152.4:3000';
+
 login.onclick = function () {
     if (username.value.trim() == '' || userpass.value.trim() == '') {
         msg.style.display = 'block';
@@ -20,37 +24,45 @@ login.onclick = function () {
     userpass = userpass.value;
 
     // 验证数据库
-    // let xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
-    // xhr.open('post', 'login', true);
+    xhr.open('post', path + '/login', true);
 
-    // xhr.onreadystatechange = () => {
-    //     if (xhr.readyState == 4 && xhr.status == 200) {
-    //         if (xhr.responseText == 'fail') {
-    //             msg.style.display = 'block';
-    //             txt.style.color = 'red';
-    //             txt.innerHTML = '输入错误';
-    //             return;
-    //         } else if (xhr.responseText == 'success') {
-    //             if (ipts[2].checked) {
-    //                 date = 7;
-    //             }
-    //             // if (username == 'admin' && userpass == '123456') {
-    //             cookieUlits.saveData({
-    //                 key: 'username',
-    //                 value: username,
-    //                 date: date
-    //             })
-    //             location.href = './index.html';
-    //             // }
-    //         }
-    //     }
-    // }
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = JSON.parse(xhr.responseText);
+            console.log(result);
+            if (result.status == 'fail') {
+                msg.style.display = 'block';
+                txt.style.color = 'red';
+                txt.innerHTML = '输入错误';
+                return;
+            } else if (result.status == 'success') {
+                if (check.checked) {
+                    date = 7;
+                }
+                cookieUlits.saveData({
+                    key: 'username',
+                    value: username,
+                    date: date
+                });
+                window.sessionStorage.setItem('token', result.token);
+                window.sessionStorage.setItem('level', result.level);
+                location.href = './index.html';
+            } else {
+                msg.style.display = 'block';
+                txt.style.color = 'red';
+                txt.innerHTML = '输入错误';
+                return;
+            }
+        }
+    }
 
-    // // post请求方式，得设置请求头。content-type表示发送给后端的数据类型
-    // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    // let str = `username=${username}&userpass=${userpass}`;
-    // xhr.send(str);
+    // post请求方式，得设置请求头。content-type表示发送给后端的数据类型
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    let str = `username=${username}&password=${userpass}`;
+    console.log(str);
+    xhr.send(str);
 
 
 

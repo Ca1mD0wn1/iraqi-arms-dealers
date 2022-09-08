@@ -1,15 +1,15 @@
 import "../../css/index/index.css";
 import "../../css/index/swiper-bundle.min.css";
 const Swiper = require("./swiper-bundle.min.js");
-
-
+if (!window.sessionStorage.getItem('token')) {
+    window.location.href = 'http://127.0.0.1:8082/login.html';
+}
 const token = window.localStorage.getItem('token');
 // const id = window.localStorage.getItem('id');
 if (token) {
     let userName = localStorage.getItem('username');
     document.getElementById('userLogin').innerText = userName;
 }
-
 var mySwiper = new Swiper('#slideshow_top .swiper', {
     direction: 'horizontal', // 垂直切换选项
     loop: true, // 循环模式选项

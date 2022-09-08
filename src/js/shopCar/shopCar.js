@@ -2,24 +2,11 @@ import { shopCar } from './module/shopCar_module.js';
 import '../../css/shopCar/common.css';
 import '../../css/shopCar/shopCar.css';
 
-// 判断是否被占用
-// let xhr = new XMLHttpRequest();
 
-// xhr.open('get', '/checkUser?username=' + str, true);
 
-// xhr.onreadystatechange = () => {
-//     if (xhr.readyState == 4 && xhr.status == 200) {
-//         if (xhr.responseText == '1') {
-//             msg4.innerHTML = '您输入的用户名已被占用';
-//         } else if (xhr.responseText == '0') {
-//             msg4.style.color = 'green';
-//             msg4.innerHTML = '验证通过';
-//             flag = true;
-//         }
-//     }
-// }
-// xhr.send();
-
+if (!window.sessionStorage.getItem('token')) {
+    window.location.href = 'http://127.0.0.1:8082/login.html';
+}
 
 let obj = {
     dom: '.shopCar',
