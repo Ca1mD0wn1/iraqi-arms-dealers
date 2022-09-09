@@ -12,6 +12,7 @@ var data = {
     "goods_price": 200,
     "goods_describe": "QBZ-191自动步枪是一款由中华人民共和国研制生产的突击步枪。突击步枪型，枪管长14.5英寸（368.3 mm）"
 }
+
 class cookieUlits {//
     static saveData(obj) {
         let defaultObj = {
@@ -118,6 +119,7 @@ export class Describe {
 
         `;
         describe.innerHTML = `${this.goods_describe}`
+        describe.firstChild
 
 
 
@@ -315,34 +317,69 @@ export class Describe {
         this.addButton.onclick = () => {
             this.countInput.value++;
         }
+
+
         this.confirmButton.onclick = () => {
-            var oldData = JSON.parse(cookieUlits.getData("shopData"));
-            if (oldData == null) {
-                oldData = new Array();
-            }
-            console.log(oldData);
-
+            let updateShop = this.updateShop;
+            let insertShop = this.insertShop;
             let goods_id = this.goods_id;
-            let goods_count = this.countInput.value;
-            let data = {
-                goods_id: goods_id,
-                goods_count: goods_count,
-            }
+            let goods_count = parseInt(this.countInput.value);
+            let str = `goods_id=${goods_id}`;
+            console.log(str);
+            var xhr = new XMLHttpRequest();
+            var data;
+            xhr.withCredentials = true;
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    data = JSON.parse(this.responseText);
+                    console.log(data);
+                    if (data.length == 0) {
+                        console.log("无数据");
+                        console.log(goods_id, goods_count)
+                        insertShop(goods_id, goods_count);
 
 
-            oldData.push(data)
-
-            oldData = JSON.stringify(oldData);
-            console.log(123);
-
-            cookieUlits.saveData({
-                key: "shopData",
-                value: oldData
-
+                    } else {
+                        console.log("需要修改");
+                        goods_count = parseInt(data[0].goods_count) + goods_count;
+                        console.log(goods_id, goods_count,);
+                        updateShop(goods_id, goods_count);
+                    }
+                }
             });
+            xhr.open("POST", "http://10.12.152.2:3000/selectShopCarRouter");
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(str);
+
         }
     }
 
+    updateShop(goods_id, goods_count) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://127.0.0.1:3000/updateShopCarIdRouter');
+        var updateStr = `goods_id=${goods_id}&goods_count=${goods_count}`;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log("修改成功!");
+                return;
+            }
+        })
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(updateStr);
+    }
+
+    insertShop(goods_id, goods_count) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("post", "http://127.0.0.1:3000/insertShopCarIdRouter");
+        var insertStr = `goods_id=${goods_id}&goods_count=${goods_count}`;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState == 4) {
+                console.log("添加成功!");
+            }
+        })
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(insertStr);
+    }
 }
 
 

@@ -119,7 +119,8 @@ module.exports = {
         host: '127.0.0.1',  //主机地址
 
         progress: true, //开启打包进度     
-        openPage: "index.html"
+        openPage: "index.html",
+        disableHostCheck: true,
 
 
     }
