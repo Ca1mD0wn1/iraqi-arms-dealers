@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');//插件==类
 const CopyPlugin = require("copy-webpack-plugin");//复制文件
