@@ -5,9 +5,9 @@ import { getGoodId } from './module/Utils.js';
 
 
 
-if (!window.sessionStorage.getItem('token')) {
-    window.location.href = 'http://127.0.0.1:8082/login.html';
-}
+// if (!window.sessionStorage.getItem('token')) {
+//     window.location.href = 'http://127.0.0.1:8082/login.html';
+// }
 
 let arr = [
     { "goods_id": 1, "goods_img_src": "01QBZ191.png", "goods_name": "QBZ191", "goods_price": 1200, "goods_describe": "QBZ-191自动步枪是一款由中华人民共和国研制生产的突击步枪。突击步枪型，枪管长14.5英寸（368.3 mm）" },
@@ -45,8 +45,9 @@ xhr.onreadystatechange = function () {
         new shopCar(obj);
     }
 }
-// xhr.setRequestHeader("token", window.sessionStorage.getItem('token'));
-xhr.send()
+xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+let str = `token=${window.sessionStorage.getItem('token')}`;
+xhr.send(str)
 
 
 

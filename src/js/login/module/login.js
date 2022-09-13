@@ -11,7 +11,7 @@ let date = '0';
 error.onclick = function () {
     msg.style.display = 'none';
 }
-let path = 'http://10.12.152.4:3000';
+let path = 'http://10.12.152.2:3000';
 
 login.onclick = function () {
     if (username.value.trim() == '' || userpass.value.trim() == '') {

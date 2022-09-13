@@ -56,8 +56,10 @@ document.getElementById('slideshow_top').onclick = function () {
 
 window.onload = function () {
     let xhr = new XMLHttpRequest;
-    xhr.open("post", "http://127.0.0.1:3000/index", true);
-    xhr.send();
+    xhr.open("post", "http://10.12.152.2:3000/index", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    let str = `token=${window.sessionStorage.getItem('token')}`;
+    xhr.send(str);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let data = JSON.parse(xhr.responseText);

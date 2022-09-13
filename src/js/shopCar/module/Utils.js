@@ -20,3 +20,23 @@ export default class Uitls {
     }
 
 }
+
+export function getGoodId(method, path, str) {
+
+    let xhr = new XMLHttpRequest();
+    if (method == 'get') {
+        xhr.open(method, path + str, true);
+    }
+    xhr.open(method, path, true);
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = JSON.parse(xhr.responseText);
+            console.log(result);
+        }
+        if (method == 'get') {
+            xhr.send();
+        }
+        xhr.send(str);
+    }
+}
