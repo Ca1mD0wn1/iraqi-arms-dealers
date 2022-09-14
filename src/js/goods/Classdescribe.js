@@ -324,7 +324,7 @@ export class Describe {
             let insertShop = this.insertShop;
             let goods_id = this.goods_id;
             let goods_count = parseInt(this.countInput.value);
-            let str = `goods_id=${goods_id}`;
+            let str = `token=${window.sessionStorage.getItem('token')}&goods_id=${goods_id}`;
             console.log(str);
             var xhr = new XMLHttpRequest();
             var data;
@@ -356,8 +356,8 @@ export class Describe {
 
     updateShop(goods_id, goods_count) {
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://127.0.0.1:3000/updateShopCarIdRouter');
-        var updateStr = `goods_id=${goods_id}&goods_count=${goods_count}`;
+        xhr.open('POST', 'http://10.12.152.2:3000/updateShopCarIdRouter');
+        var updateStr = `token=${window.sessionStorage.getItem('token')}&goods_id=${goods_id}&goods_count=${goods_count}`;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 console.log("修改成功!");
@@ -370,8 +370,8 @@ export class Describe {
 
     insertShop(goods_id, goods_count) {
         let xhr = new XMLHttpRequest();
-        xhr.open("post", "http://127.0.0.1:3000/insertShopCarIdRouter");
-        var insertStr = `goods_id=${goods_id}&goods_count=${goods_count}`;
+        xhr.open("post", "http://10.12.152.2:3000/insertShopCarIdRouter");
+        var insertStr = `token=${window.sessionStorage.getItem('token')}&goods_id=${goods_id}&goods_count=${goods_count}`;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState == 4) {
                 console.log("添加成功!");

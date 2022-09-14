@@ -91,7 +91,7 @@ export default
         this.button.onclick = () => {
             sessionStorage.setItem("id", id);
             console.log(sessionStorage.getItem("id"));
-            window.open("describe.html");
+            window.open("./describe.html");
         }
     }
 }

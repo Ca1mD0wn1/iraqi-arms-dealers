@@ -11,7 +11,7 @@ let flag = false;
 error.onclick = function () {
     msg4.style.display = 'none';
 }
-let path = 'http://10.12.152.4:3000';
+let path = 'http://10.12.152.2:3000';
 username.onblur = function () {
     let str = this.value;
     // 判断非空
