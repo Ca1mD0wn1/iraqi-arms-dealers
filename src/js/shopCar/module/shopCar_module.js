@@ -20,6 +20,7 @@ export class shopCar {
             this[k] = obj[k] ? obj[k] : defaultObj[k];
         }
 
+
         this.dom = this.dom ? document.querySelector(this.dom) : '';
         this.allBtn = document.querySelector('#allBtn');
         this.allPrice = document.querySelector('.allPrice');
@@ -309,36 +310,6 @@ export class shopCar {
 
         }
 
-    }
-
-    addCookie() {
-        let allPrice = 0;
-        for (let i = 0; i < this.data.length; i++) {
-            allPrice += this.data[i].goods_price;
-            cookieUlits.saveData({
-                key: `shopCar${i + 1}`,
-                value: `商品编号${this.data[i].id + 1},商品名称${this.data[i].name},商品价格${this.data[i].price},商品数量${this.countNum[i]}`,
-                date: 30,
-            })
-        }
-        // cookieUlits.saveData({
-        //     key: 'allPrice',
-        //     value: allPrice,
-        //     date: 30
-        // })
-    }
-
-    replaceCookie(i) {
-        cookieUlits.saveData({
-            key: `shopCar${i + 1}`,
-            value: `商品编号${this.data[i].id + 1},商品名称${this.data[i].name},商品价格${this.goods[i].price},商品数量${this.countNum[i]}`,
-            date: 30,
-        })
-        cookieUlits.saveData({
-            key: 'allPrice',
-            value: this.allPrice,
-            date: 30
-        })
     }
 
 }
