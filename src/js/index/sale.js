@@ -25,6 +25,7 @@ var mySwiper = new Swiper('.swiper', {
 });
 
 
+
 window.onload = function () {
     let xhr = new XMLHttpRequest;
     xhr.open("post", "http://10.12.152.2:3000/sale");
@@ -74,7 +75,6 @@ window.onload = function () {
                     sessionStorage.setItem("id", 6);
                     window.open("describe.html");
                 };
-
 
 
             }

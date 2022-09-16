@@ -21,6 +21,97 @@ a {
 	width: 920px;
 	margin: 0 auto;
 }
+.w .ww {
+	width: 1190px;
+	margin: 30px auto 0;
+}
+.tonglan {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 26px;
+	background-color: #f2f2f2;
+	z-index: -1;
+}
+
+#site-nav {
+	width: 1190;
+	height: 26px;
+	line-height: 26px;
+	background-color: #f2f2f2;
+	font-size: 12px;
+	color: #999;
+	font-family: "Microsoft YaHei", tahoma, arial, "Hiragino Sans GB",
+		"\5b8b\4f53", sans-serif;
+}
+
+#site-nav .index {
+	margin-left: 20px;
+}
+
+#site-nav p {
+	float: left;
+	margin-right: 20px;
+}
+
+#site-nav a {
+	font-size: 12px;
+	color: #999;
+	margin-right: 20px;
+}
+
+#site-nav ul {
+	float: right;
+	margin-right: 20px;
+}
+
+#site-nav ul>li {
+	float: left;
+	margin: 0 10px;
+}
+
+/* search */
+.search {
+	width: 100%;
+	height: 77px;
+	margin: 42px auto 0;
+}
+
+.search h1 {
+	float: left;
+	margin: -20px 20px 5px;
+}
+
+.search .logo {
+	width: 174px;
+	height: 106px;
+	border-radius: 10px;
+}
+
+.search>input {
+	float: left;
+	width: 630px;
+	height: 42px;
+	border: 1px solid red;
+	border-radius: 20px;
+	margin-left: 16px;
+	margin-top: 8px;
+	font-size: 12px;
+	text-indent: 2em;
+	color: #999;
+}
+
+.search>div {
+	float: left;
+	margin-left: -90px;
+	margin-top: 8px;
+	width: 90px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 20px;
+	background-color: #fe0137;
+	text-align: center;
+}
 
 .tonglan_top img {
 	width: 100%;
