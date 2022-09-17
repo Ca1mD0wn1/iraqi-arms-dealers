@@ -59,6 +59,7 @@ export class Describe {
         }
         this.render();
         this.addEvent();
+        this.sign;
     }
 
 
@@ -292,6 +293,22 @@ export class Describe {
             background-color:black;
             list-style:none;
             `;
+
+        let sign = document.createElement("span");
+        sign.style.cssText = `
+                    position: fixed;
+                    left:%50;
+                    top:450px;
+                    transform: translate(-50%);
+                    width:550px;
+                    height:50px;
+                    line-height:50px;
+                    text-align: center;
+                    background-color:#ffab40;
+                    opacity:0;
+                    font-size:30px;`;
+        document.body.appendChild(sign);
+        this.sign = sign;
         design.append(designSpan)
         design.append(hr2);
         design.append(designMain);
@@ -320,6 +337,7 @@ export class Describe {
 
 
         this.confirmButton.onclick = () => {
+            let sign = this.sign;
             let updateShop = this.updateShop;
             let insertShop = this.insertShop;
             let goods_id = this.goods_id;
@@ -337,14 +355,19 @@ export class Describe {
                         console.log("无数据");
                         console.log(goods_id, goods_count)
                         insertShop(goods_id, goods_count);
-
-
                     } else {
                         console.log("需要修改");
                         goods_count = parseInt(data[0].goods_count) + goods_count;
                         console.log(goods_id, goods_count,);
                         updateShop(goods_id, goods_count);
                     }
+
+                    sign.innerHTML = `添加成功!目前商品编号为${goods_id}的商品有 ${goods_count}件`;
+                    sign.style.opacity = 1;
+                    let myTimer = setTimeout(() => {
+                        sign.style.opacity = 0;
+
+                    }, 2000);
                 }
             });
             xhr.open("POST", "http://10.12.152.2:3000/selectShopCarRouter");
