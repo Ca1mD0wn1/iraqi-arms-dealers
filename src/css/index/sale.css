@@ -3,50 +3,156 @@
 	margin: 0;
 	padding: 0;
 }
+
 li {
 	list-style: none;
 }
+
 img {
 	display: block;
 	border: none;
 }
+
 input {
 	border: none;
 }
+
 a {
 	text-decoration: none;
 	color: #000;
 }
+
 .w {
-	width: 920px;
+	width: 1190px;
 	margin: 0 auto;
 }
 
-.tonglan_top img {
-	width: 100%;
-	height: 430px;
+.w .ww {
+	width: 1190px;
+	margin: 30px auto 0;
 }
+
+.tonglan {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 26px;
+	background-color: #f2f2f2;
+	z-index: -1;
+}
+
+#site-nav {
+	width: 1190;
+	height: 26px;
+	line-height: 26px;
+	background-color: #f2f2f2;
+	font-size: 12px;
+	color: #999;
+	font-family: "Microsoft YaHei", tahoma, arial, "Hiragino Sans GB",
+		"\5b8b\4f53", sans-serif;
+}
+
+#site-nav .index {
+	margin-left: 20px;
+}
+
+#site-nav p {
+	float: left;
+	margin-right: 20px;
+}
+
+#site-nav a {
+	font-size: 12px;
+	color: #999;
+	margin-right: 20px;
+}
+
+#site-nav ul {
+	float: right;
+	margin-right: 20px;
+}
+
+#site-nav ul>li {
+	float: left;
+	margin: 0 10px;
+}
+
+/* search */
+.search {
+	width: 100%;
+	height: 77px;
+	margin: 42px auto 0;
+}
+
+.search h1 {
+	float: left;
+	margin: -20px 62px 5px;
+}
+
+.search .logo {
+	width: 174px;
+	height: 92px;
+	border-radius: 10px;
+}
+
+.search>input {
+	float: left;
+	width: 630px;
+	height: 42px;
+	border: 1px solid red;
+	border-radius: 20px;
+	margin-left: 16px;
+	margin-top: 10px;
+	font-size: 12px;
+	text-indent: 2em;
+	color: #999;
+}
+
+.search>div {
+	float: left;
+	margin-left: -90px;
+	margin-top: 10px;
+	width: 90px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 20px;
+	background-color: #fe0137;
+	text-align: center;
+}
+
+.tonglan_top img {
+	width: 1190px;
+	height: 430px;
+	margin: 0 auto;
+}
+
 .banner {
 	display: flex;
 	justify-content: space-between;
 	margin: 10px auto;
 }
+
 .banner .left .swiper {
-	--swiper-navigation-color: #fff; /* 单独设置按钮颜色 */
-	--swiper-navigation-size: 20px; /* 设置按钮大小 */
+	--swiper-navigation-color: #fff;
+	/* 单独设置按钮颜色 */
+	--swiper-navigation-size: 20px;
+	/* 设置按钮大小 */
 	--swiper-pagination-bullet-size: 12px;
 }
+
 .banner .left .swiper-pagination-bullet-active {
 	background-color: #fff;
 }
+
 .banner .left {
 	width: 520px;
 	height: 280px;
 	background-color: #000;
 }
+
 .banner .right {
 	position: relative;
-	width: 380px;
+	width: 660px;
 	height: 280px;
 	background-color: #000;
 }
@@ -61,15 +167,20 @@ a {
 	color: #fff;
 	border-bottom: 2px solid #fff;
 }
+
 .banner .right img {
 	position: absolute;
 	top: 30px;
 	right: 0px;
 }
+
 .banner .right .hot {
+	width: 660px;
 	height: 250px;
 	background: url(../../../public/images/index/sale/hot.jpg) no-repeat;
+	background-size: cover;
 }
+
 .title {
 	padding-left: 10px;
 	height: 60px;
@@ -80,9 +191,11 @@ a {
 	color: #fff;
 	margin: 5px auto;
 }
+
 .center_goods {
-	width: 920px;
+	width: 1190px;
 }
+
 .center_goods .goods_sale {
 	display: flex;
 	flex-wrap: wrap;
@@ -90,18 +203,35 @@ a {
 }
 
 .center_goods li {
+	position: relative;
 	margin: 5px 0;
-	width: 300px;
-	height: 350px;
+	width: 390px;
+	height: 410px;
+	padding: 5px;
+	background-color: #eee;
+	box-shadow: 0px 0px 4px #ccc;
+}
 
-	border: 1px solid #eee;
-}
 .goods_sale img {
-	width: 300px;
+	width: 370px;
 	height: 350px;
 }
+
+.goods_sale .five {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 390px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	background-color: #cd3333;
+}
+
 .tonglan_bot img {
-	width: 920px;
+	width: 1190px;
 	height: 300px;
 	background-color: #000;
 }
