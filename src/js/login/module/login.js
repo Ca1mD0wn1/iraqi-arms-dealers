@@ -5,13 +5,14 @@ let txt = document.querySelector('.txt');
 let username = document.getElementById('username');
 let userpass = document.getElementById('userpass');
 let check = document.getElementById('check');
+import { Path } from '../../commont/commont';
 
 
 let date = '0';
 error.onclick = function () {
     msg.style.display = 'none';
 }
-let path = 'http://10.12.152.2:3000';
+let path = Path;
 
 login.onclick = function () {
     if (username.value.trim() == '' || userpass.value.trim() == '') {
@@ -20,8 +21,8 @@ login.onclick = function () {
         txt.innerHTML = '请填写表单';
         return;
     }
-    username = username.value;
-    userpass = userpass.value;
+    let usernameValue = username.value;
+    let userpassValue = userpass.value;
 
     // 验证数据库
     let xhr = new XMLHttpRequest();
@@ -37,13 +38,20 @@ login.onclick = function () {
                 txt.style.color = 'red';
                 txt.innerHTML = '输入错误';
                 return;
-            } else if (result.status == 'success') {
+            } else if (result.status == 'passwordError') {
+                msg.style.display = 'block';
+                txt.style.color = 'red';
+                txt.innerHTML = '密码输入错误';
+                return;
+            }
+            else if (result.status == 'success') {
                 if (check.checked) {
                     date = 7;
                 }
+                // console.log(username);
                 cookieUlits.saveData({
                     key: 'username',
-                    value: username,
+                    value: usernameValue,
                     date: date
                 });
                 window.sessionStorage.setItem('token', result.token);
@@ -60,14 +68,17 @@ login.onclick = function () {
 
     // post请求方式，得设置请求头。content-type表示发送给后端的数据类型
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    let str = `username=${username}&password=${userpass}`;
-    console.log(str);
+    let str = `username=${usernameValue}&password=${userpassValue}`;
     xhr.send(str);
 
 
 
 }
 
+function empty(dom1, dom2) {
+    dom1.value = '';
+    dom2.value = '';
+}
 
 
 

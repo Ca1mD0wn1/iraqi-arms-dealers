@@ -1,5 +1,6 @@
 import "../../css/index/index.css";
 import "../../css/index/swiper-bundle.min.css";
+import { Path } from '../commont/commont';
 const Swiper = require("./swiper-bundle.min.js");
 if (!window.sessionStorage.getItem('token')) {
     window.location.href = 'http://127.0.0.1:8082/login.html';
@@ -56,7 +57,7 @@ document.getElementById('slideshow_top').onclick = function () {
 
 window.onload = function () {
     let xhr = new XMLHttpRequest;
-    xhr.open("post", "http://10.12.152.2:3000/index", true);
+    xhr.open("post", Path + "/index", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     let str = `token=${window.sessionStorage.getItem('token')}`;
     xhr.send(str);

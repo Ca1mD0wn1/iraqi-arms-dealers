@@ -1,3 +1,4 @@
+import { Path } from '../../commont/commont';
 let username = document.getElementById('username');
 let userpass = document.getElementById('userpass');
 let userpass2 = document.getElementById('userpass2');
@@ -11,7 +12,7 @@ let flag = false;
 error.onclick = function () {
     msg4.style.display = 'none';
 }
-let path = 'http://10.12.152.2:3000';
+let path = Path;
 username.onblur = function () {
     let str = this.value;
     // 判断非空
@@ -22,9 +23,9 @@ username.onblur = function () {
         return;
     }
     // 判断是否满足正则
-    if (!reg('nick', str)) {
+    if (!reg('userName', str)) {
         msg4.style.display = 'block';
-        txt.innerHTML = '用户名由2到4位汉字组成';
+        txt.innerHTML = '数字字母下划线，以大写字母开头';
         txt.style.color = 'red';
         return;
     }
@@ -147,7 +148,7 @@ function reg(type, str) {
         Id: /^[1-8][0-9]{16}[0-9\X]$/i,
         date: /(^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$)|(^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$)(^[0-9]{4}\.[0-9]{2}\.[0-9]{2}$)/i,
         nick: /^[\u4e00-\u9fa5]{2,4}$/i,
-        userName: /^[A-Z]\w{3,7}$/,
+        userName: /^[A-Z]\w{3,7}$/,  // 4 到 8 位字母数字下划线组成，以大写字母开头 
         password: [
             /^\w{5,13}/,
             /[A-Z]/,

@@ -1,5 +1,6 @@
 import "../../css/index/swiper-bundle.min.css";
 import "../../css/index/sale.css";
+import { Path } from '../commont/commont';
 const Swiper = require("./swiper-bundle.min.js");
 
 
@@ -27,7 +28,7 @@ var mySwiper = new Swiper('.swiper', {
 
 window.onload = function () {
     let xhr = new XMLHttpRequest;
-    xhr.open("post", "http://10.12.152.2:3000/sale");
+    xhr.open("post", Path + "/sale");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     let str = `token=${window.sessionStorage.getItem('token')}`;
     xhr.send(str);

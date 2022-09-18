@@ -1,5 +1,6 @@
 import "../../css/goods/goods.css";
 import Goods from "./classGoods.js";
+import { Path } from '../commont/commont';
 
 // if (!window.sessionStorage.getItem('token')) {
 //     window.location.href = 'http://127.0.0.1:8082/login.html';
@@ -7,7 +8,7 @@ import Goods from "./classGoods.js";
 
 let data;
 let xhr = new XMLHttpRequest();
-xhr.open('post', 'http://10.12.152.2:3000/goodsListRouter');
+xhr.open('post', Path + '/goodsListRouter');
 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 str = `token=${window.sessionStorage.getItem('token')}`;
 xhr.send(str);
@@ -20,7 +21,5 @@ xhr.addEventListener("readystatechange", function () {
         })
     }
 });
-// console.log(window.sessionStorage.getItem('token'));
-// xhr.setRequestHeader("token", window.sessionStorage.getItem('token'));
 let str = 'token=' + window.sessionStorage.getItem('token');
 xhr.send();
