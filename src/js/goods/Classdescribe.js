@@ -393,7 +393,7 @@ export class Describe {
 
     insertShop(goods_id, goods_count) {
         let xhr = new XMLHttpRequest();
-        xhr.open("post", "http://10.12.152.2:3000/insertShopCarIdRouter");
+        xhr.open("post", "http://10.12.1`     52.2:3000/insertShopCarIdRouter");
         var insertStr = `token=${window.sessionStorage.getItem('token')}&goods_id=${goods_id}&goods_count=${goods_count}`;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState == 4) {
