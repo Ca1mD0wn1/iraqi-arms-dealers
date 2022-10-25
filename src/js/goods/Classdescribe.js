@@ -1,5 +1,6 @@
 
 import BigMirror from "./ClassBigMirror.js";
+import { Path } from '../commont/commont';
 
 
 // var data = {
@@ -370,7 +371,7 @@ export class Describe {
                     }, 2000);
                 }
             });
-            xhr.open("POST", "http://10.12.152.2:3000/selectShopCarRouter");
+            xhr.open("POST", Path + "/selectShopCarRouter");
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.send(str);
 
@@ -379,7 +380,7 @@ export class Describe {
 
     updateShop(goods_id, goods_count) {
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://10.12.152.2:3000/updateShopCarIdRouter');
+        xhr.open('POST', Path + '/updateShopCarIdRouter');
         var updateStr = `token=${window.sessionStorage.getItem('token')}&goods_id=${goods_id}&goods_count=${goods_count}`;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
@@ -393,7 +394,7 @@ export class Describe {
 
     insertShop(goods_id, goods_count) {
         let xhr = new XMLHttpRequest();
-        xhr.open("post", "http://10.12.1`     52.2:3000/insertShopCarIdRouter");
+        xhr.open("post", Path + "/insertShopCarIdRouter");
         var insertStr = `token=${window.sessionStorage.getItem('token')}&goods_id=${goods_id}&goods_count=${goods_count}`;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState == 4) {

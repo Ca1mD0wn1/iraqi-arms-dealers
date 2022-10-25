@@ -1,4 +1,5 @@
 import { shopCar } from './module/shopCar_module.js';
+import { Path } from '../commont/commont';
 import '../../css/shopCar/common.css';
 import '../../css/shopCar/shopCar.css';
 
@@ -7,8 +8,6 @@ import '../../css/shopCar/shopCar.css';
 if (!window.sessionStorage.getItem('token')) {
     window.location.href = 'http://127.0.0.1:8082/login.html';
 }
-
-
 
 let arr = [
     {
@@ -117,7 +116,7 @@ let result = '';
 let data1 = [];
 let obj = {};
 let xhr = new XMLHttpRequest();
-xhr.open('post', 'http://10.12.152.2:3000/shopCarCountRouter', true);
+xhr.open('post', Path + '/shopCarCountRouter', true);
 xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
         result = JSON.parse(xhr.responseText);

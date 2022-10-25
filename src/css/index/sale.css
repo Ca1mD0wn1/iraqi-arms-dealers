@@ -3,28 +3,35 @@
 	margin: 0;
 	padding: 0;
 }
+
 li {
 	list-style: none;
 }
+
 img {
 	display: block;
 	border: none;
 }
+
 input {
 	border: none;
 }
+
 a {
 	text-decoration: none;
 	color: #000;
 }
+
 .w {
 	width: 1190px;
 	margin: 0 auto;
 }
+
 .w .ww {
 	width: 1190px;
 	margin: 30px auto 0;
 }
+
 .tonglan {
 	position: absolute;
 	top: 0;
@@ -84,7 +91,7 @@ a {
 
 .search .logo {
 	width: 174px;
-	height: 106px;
+	height: 92px;
 	border-radius: 10px;
 }
 
@@ -116,26 +123,33 @@ a {
 .tonglan_top img {
 	width: 1190px;
 	height: 430px;
-  margin: 0 auto;
+	margin: 0 auto;
 }
+
 .banner {
 	display: flex;
 	justify-content: space-between;
 	margin: 10px auto;
 }
+
 .banner .left .swiper {
-	--swiper-navigation-color: #fff; /* 单独设置按钮颜色 */
-	--swiper-navigation-size: 20px; /* 设置按钮大小 */
+	--swiper-navigation-color: #fff;
+	/* 单独设置按钮颜色 */
+	--swiper-navigation-size: 20px;
+	/* 设置按钮大小 */
 	--swiper-pagination-bullet-size: 12px;
 }
+
 .banner .left .swiper-pagination-bullet-active {
 	background-color: #fff;
 }
+
 .banner .left {
 	width: 520px;
 	height: 280px;
 	background-color: #000;
 }
+
 .banner .right {
 	position: relative;
 	width: 660px;
@@ -153,17 +167,20 @@ a {
 	color: #fff;
 	border-bottom: 2px solid #fff;
 }
+
 .banner .right img {
 	position: absolute;
 	top: 30px;
 	right: 0px;
 }
+
 .banner .right .hot {
-  width: 660px;
+	width: 660px;
 	height: 250px;
 	background: url(../../../public/images/index/sale/hot.jpg) no-repeat;
-  background-size: cover;
+	background-size: cover;
 }
+
 .title {
 	padding-left: 10px;
 	height: 60px;
@@ -174,9 +191,11 @@ a {
 	color: #fff;
 	margin: 5px auto;
 }
+
 .center_goods {
 	width: 1190px;
 }
+
 .center_goods .goods_sale {
 	display: flex;
 	flex-wrap: wrap;
@@ -184,12 +203,12 @@ a {
 }
 
 .center_goods li {
-  position: relative;
+	position: relative;
 	margin: 5px 0;
 	width: 390px;
 	height: 410px;
-  padding: 5px;
-  background-color: #eee;
+	padding: 5px;
+	background-color: #eee;
 	box-shadow: 0px 0px 4px #ccc;
 }
 
@@ -197,18 +216,20 @@ a {
 	width: 370px;
 	height: 350px;
 }
+
 .goods_sale .five {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 390px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  font-size: 30px;
-  color: #fff;
-  background-color: #cd3333;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 390px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	background-color: #cd3333;
 }
+
 .tonglan_bot img {
 	width: 1190px;
 	height: 300px;
